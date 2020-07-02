@@ -1,29 +1,38 @@
 package com.codedifferently;
 
 public class Memory {
-    
 
-    private double temp1 = 0;
-    private double temp2 = 0;
 
-    public void setTemp1(double num){
-        this.temp1 = num;
+    private double value = 0;
+    private boolean cleared = true;
 
-    }
-
-    public void setTemp2(double num){
-        this.temp2 = num;
+    public void setValue(double num){
+        this.value = num;
 
     }
 
-    public double getTemp1(){
-        return this.temp1;
+
+    public double getValue(){
+        return this.value;
 
     }
 
-    public double getTemp2(){
-        return this.temp2;
-
+    public void clear(){
+        this.value = 0;
+        this.cleared = true;
     }
+
+    public void setClearFalse(){
+        this.cleared = false;
+    }
+
+    public boolean getClearStatus(){
+        return this.cleared;
+    }
+
+    public void display(){
+        System.out.printf("\n\n== %.0f\n",this.getValue());
+    }
+
     
 }

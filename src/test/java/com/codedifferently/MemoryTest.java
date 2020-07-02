@@ -4,19 +4,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
-public class MemoryTest{
+public class MemoryTest {
     Memory memory;
+
     @Before
-    public void initialize(){
-    this.memory = new Memory();
+    public void initialize() {
+        this.memory = new Memory();
     }
 
     @Test
-    public void testTemp1() {
-        memory.setTemp1(3);
+    public void testValue() {
+        memory.setValue(3);
 
-        double actualValue = memory.getTemp1();
+        double actualValue = memory.getValue();
         double expectedValue = 3;
 
         Assert.assertEquals(expectedValue, actualValue, 0);
@@ -24,15 +24,29 @@ public class MemoryTest{
     }
 
     @Test
-    public void testTemp2() {
-        memory.setTemp2(6);
 
-        double actualValue = memory.getTemp2();
-        double expectedValue = 6;
+    public void testClear() {
+
+        memory.setValue(7);
+
+        memory.clear();
+
+        double expectedValue = 0;
+        double actualValue = memory.getValue();
 
         Assert.assertEquals(expectedValue, actualValue, 0);
+    }
+
+    @Test
+
+    public void testCleared() {
+
+        memory.clear();
+
+        boolean expectedValue = memory.getClearStatus();
+
+        Assert.assertEquals(expectedValue, true);
 
     }
-  
 
 }
