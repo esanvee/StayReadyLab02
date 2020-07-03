@@ -215,11 +215,8 @@ public class SciCalculator {
          * soft rebooted.
          */
 
-        /// IMPORTENT!! Clears scanner.//
-        scanner.nextLine();
-        System.out.println();
-        ////////////////////////////////
 
+        clearScanner();
         memory.clear();
         getNewValue();
 
@@ -227,6 +224,13 @@ public class SciCalculator {
 
     public static void stop() {
         System.exit(0);
+    }
+
+    public static void clearScanner(){
+        /// IMPORTENT!! Clears scanner.//
+        scanner.nextLine();
+        System.out.println();
+        ////////////////////////////////
     }
 
 }
