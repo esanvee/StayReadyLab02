@@ -49,6 +49,10 @@ public class BasicFunction {
         return result;
     }
 
+    public static double invert(double num){
+        return num * -1;
+    }
+
 
 
 

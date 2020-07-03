@@ -31,7 +31,7 @@ public class Memory {
     }
 
     public void display(){
-        System.out.printf("\n\n== %.0f\n",this.getValue());
+        System.out.printf("\n\n== %.2f\n",this.getValue());
     }
 
     

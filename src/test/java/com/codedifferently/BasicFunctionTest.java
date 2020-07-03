@@ -2,7 +2,7 @@ package com.codedifferently;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -24,7 +24,7 @@ public class BasicFunctionTest {
         double num2 = 2;
 
         double expectedResult = num1 + num2;
-        double actualResult = basic.add(num1, num2);
+        double actualResult = BasicFunction.add(num1, num2);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -37,7 +37,7 @@ public class BasicFunctionTest {
         double num2 = 2;
 
         double expectedResult = num1 - num2;
-        double actualResult = basic.subtract(num1, num2);
+        double actualResult = BasicFunction.subtract(num1, num2);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -50,7 +50,7 @@ public class BasicFunctionTest {
         double num2 = 2;
 
         double expectedResult = num1 * num2;
-        double actualResult = basic.multiply(num1, num2);
+        double actualResult = BasicFunction.multiply(num1, num2);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -63,7 +63,7 @@ public class BasicFunctionTest {
         double num2 = 2;
 
         double expectedResult = num1 / num2;
-        double actualResult = basic.divide(num1, num2);
+        double actualResult = BasicFunction.divide(num1, num2);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -76,7 +76,7 @@ public class BasicFunctionTest {
         
 
         double expectedResult = num1*num1;
-        double actualResult = basic.square(num1);
+        double actualResult = BasicFunction.square(num1);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -89,7 +89,7 @@ public class BasicFunctionTest {
         double num2 = 4;
 
         double expectedResult = Math.pow(num1, num2);
-        double actualResult = basic.exponent(num1, num2);
+        double actualResult = BasicFunction.exponent(num1, num2);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
     }
@@ -102,9 +102,22 @@ public class BasicFunctionTest {
         
 
         double expectedResult = 5;
-        double actualResult = basic.sqrt(num1);
+        double actualResult = BasicFunction.sqrt(num1);
 
         Assert.assertEquals(expectedResult, actualResult, 0);
+    }
+
+    @Test
+
+    public void testInvert(){
+        double num = 100;
+
+        double expectedResult = -100;
+        double actualResult = BasicFunction.invert(num);
+
+        Assert.assertEquals(expectedResult, actualResult,0);
+
+
     }
 
 

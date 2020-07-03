@@ -12,12 +12,33 @@ public class SciCalculator {
     private static String inputOp = "";
     static Scanner scanner = new Scanner(System.in);
     static Memory memory = new Memory();
+    static DisplayMode displayMode = new DisplayMode();
 
     public static void main(String[] args) {
 
-        // System.out.println("\n\nPlease select a calculator mode\n\n");
+        
+        System.out.println("\n\nBooting...");
 
-        getNewValue();
+        System.out.println("\nPlease select a display mode\n");
+        System.out.println("1 = decimal\n2 = binary\n3 = octal\n4 = hexadecimal\n");
+
+        try {
+            //check for a number
+            int num = scanner.nextInt();
+            displayMode.changeDisplayMode(num);
+
+        } catch (Exception e) {
+
+            System.out.println("\nGoodbye.\n");
+            stop(); 
+
+        }
+
+        
+
+        
+
+        
 
     }
 
@@ -27,7 +48,7 @@ public class SciCalculator {
 
             /*
              * This method is only to be used when booting the calculator up OR after
-             * clearing the memory. Zero is displayed, but it does NOT could as a number
+             * clearing the memory. Zero is displayed, but it does NOT count as a number
              * waiting in memory.
              */
 
@@ -91,13 +112,34 @@ public class SciCalculator {
 
                     case "^2":
                         System.out.println("square.");
+                        memory.setValue(BasicFunction.square(memory.getValue()));
+                        memory.display();
+                        calculate();
+                        
+                    case "^":
+                        System.out.println("exponent.");
                         break;
+
+                    case "sqrt":
+                        System.out.println("square.");
+                        memory.setValue(BasicFunction.sqrt(memory.getValue()));
+                        memory.display();
+                        calculate();
+
+                    case "invert":
+                        System.out.println("invert.");
+                        memory.setValue(BasicFunction.invert(memory.getValue()));
+                        memory.display();
+                        calculate();
+
+                    case "clear":
+                        clearMemory();
 
                     case "stop":
                         stop();
 
                     default:
-                        System.out.println("Oops!");
+                        System.out.println("Oops! An error occured. Please try again.");
                         clearMemory();
                         break;
                 }
@@ -136,6 +178,13 @@ public class SciCalculator {
                         memory.setValue(BasicFunction.divide(memory.getValue(), inputNum));
                         break;
 
+                    case "^":
+                        memory.setValue(BasicFunction.exponent(memory.getValue(), inputNum));
+                        break;
+
+                    case "clear":
+                        clearMemory();
+
                     case "stop":
                         stop();
 
@@ -153,7 +202,7 @@ public class SciCalculator {
 
         }
 
-        System.out.println("An error has occured. Please try again.");
+        System.out.println("An error occured. Please try again.");
 
         clearMemory();
 
