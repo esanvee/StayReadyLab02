@@ -13,6 +13,7 @@ public class SciCalculator {
     static Scanner scanner = new Scanner(System.in);
     static Memory memory = new Memory();
     static DisplayMode displayMode = new DisplayMode();
+    static TrigFunction trigFunction = new TrigFunction();
 
     public static void main(String[] args) {
 
@@ -129,6 +130,24 @@ public class SciCalculator {
                     case "invert":
                         System.out.println("invert.");
                         memory.setValue(BasicFunction.invert(memory.getValue()));
+                        memory.display();
+                        calculate();
+
+                    case "sin":
+                        System.out.println("sine.");
+                        memory.setValue(TrigFunction.sine(memory.getValue()));
+                        memory.display();
+                        calculate();   
+
+                    case "cos":
+                        System.out.println("cosine.");
+                        memory.setValue(TrigFunction.cosine(memory.getValue()));
+                        memory.display();
+                        calculate();
+
+                    case "tan":
+                        System.out.println("tangent.");
+                        memory.setValue(TrigFunction.tangent(memory.getValue()));
                         memory.display();
                         calculate();
 
